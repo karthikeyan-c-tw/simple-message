@@ -38,3 +38,5 @@ insert into greetings (language, message)
     values ('sv','Hallå');
 insert into greetings (language, message)
     values ('th','สวัสดี');
+insert into greetings (language, message)
+    values ('te','నమస్కారం');
