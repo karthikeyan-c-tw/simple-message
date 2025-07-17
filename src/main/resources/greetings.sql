@@ -40,3 +40,5 @@ insert into greetings (language, message)
     values ('th','สวัสดี');
 insert into greetings (language, message)
     values ('te','నమస్కారం');
+insert into greetings (language, message)
+    values ('gj','હેલો');
