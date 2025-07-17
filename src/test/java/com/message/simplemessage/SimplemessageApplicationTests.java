@@ -67,7 +67,7 @@ class SimplemessageApplicationTests {
 
 	@Test
 	void testGetMessageDefault() throws Exception {
-		mockMvc.perform(get("/simple-message/message/pt"))
+		mockMvc.perform(get("/simple-message/message/xx"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.Message").value("Hello"));
 	}
