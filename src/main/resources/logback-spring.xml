@@ -1,16 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="CONSOLE_LOG_PATTERN" value="%d{dd/MM/yyyy HH:mm:ss} - %msg%n"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
-        </encoder>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
+    <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+        <providers>
+            <timestamp>
+                <fieldName>@timestamp</fieldName>
+            </timestamp>
 
-    <logger name="com.message" level="INFO"/>
+            <loggerName>
+                <fieldName>logger</fieldName>
+            </loggerName>
+
+            <threadName>
+                <fieldName>thread</fieldName>
+            </threadName>
+
+            <level>
+                <fieldName>level</fieldName>
+            </level>
+
+            <message/>
+            <caller>
+                <classFieldName>class</classFieldName>
+                <methodFieldName>method</methodFieldName>
+                <fileFieldName>file</fileFieldName>
+                <lineFieldName>line</lineFieldName>
+            </caller>
+        </providers>
+    </encoder>
 </configuration>
